@@ -1,0 +1,19 @@
+{
+  "name": "likert-react",
+  "version": "1.0.0",
+  "description": "A react component that allows answering to questions with the likert scale.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "likert scale",
+    "questions"
+  ],
+  "author": "Henrik Nygren <nygrenh@gmail.com>",
+  "license": "MIT OR Apache-2.0",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-icons": "^2.2.5"
+  }
+}

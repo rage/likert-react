@@ -1,21 +1,29 @@
 // @flow
 import React, { Component } from 'react';
 import prefixer from 'utils/class-name-prefixer';
+import styled from 'styled-components';
 
-const notChosen = prefixer('scale-icon');
-const highlighted = `${notChosen} ${prefixer('highlighted')}`;
+const Sentiments = styled.div`
+  & > * {
+    cursor: pointer;
+    margin: 0.2rem;
+    transition: transform .2s;
+    &:hover {
+      transform: scale(1.3);
+    }
+    &.highlighted {
+      transform: scale(1.2);
+      cursor: pointer;
+      margin: 0.2rem;
+      color: blue;
+    }
+  }
+`
 
 const KEY_LEFT = 37;
 const KEY_RIGHT = 39;
 const KEY_UP = 38;
 const KEY_DOWN = 40;
-
-type Props = {
-  children: any,
-  answer: number,
-  onClick: (string, number) => void,
-  question: string,
-};
 
 export default class SentimentWrapper extends Component {
 
@@ -23,6 +31,7 @@ export default class SentimentWrapper extends Component {
     super(props);
     this.focusables = [];
     this.amountOfChildren = this.props.children.length;
+    this.state = { chosen: undefined };
   }
 
   componentDidMount() {
@@ -32,11 +41,8 @@ export default class SentimentWrapper extends Component {
     }
   }
 
-  focusables: Array<?HTMLElement>;
-  amountOfChildren: number;
-
   radioOnKeyDown(e: KeyboardEvent) {
-    let answer = !this.props.answer ? 0 : this.props.answer;
+    let answer = !this.state.chosen ? 0 : this.state.chosen;
     let reviewKeyPressed = false;
     switch (e.keyCode) {
       case KEY_UP:
@@ -58,22 +64,25 @@ export default class SentimentWrapper extends Component {
 
   render() {
     return (
-      <div>
+      <Sentiments>
         {this.props.children.map((child, m) => {
           const n = m + 1;
           return React.cloneElement(child, {
-            className: this.props.answer === n ? highlighted : notChosen,
-            onClick: () => this.props.onClick(this.props.question, n),
+            className: this.state.chosen === n ? 'highlighted' : '',
+            onClick: () => {
+              this.setState({ chosen: n });
+              this.props.onClick(this.props.question, n);
+            },
             role: 'radio',
             id: `${this.props.question}-${n}`,
             key: `${this.props.question}-${n}`,
-            'aria-checked': this.props.answer === n,
+            'aria-checked': this.state.chosen === n,
             onKeyDown: e => this.radioOnKeyDown(e),
-            tabIndex: (this.props.answer === n || (n === 1 && this.props.answer === undefined)) ? '0' : '-1',
+            tabIndex: (this.props.answer === n || (n === 1 && this.state.chosen === undefined)) ? '0' : '-1',
           });
         })
       }
-      </div>
+      </Sentiments>
     );
   }
 }

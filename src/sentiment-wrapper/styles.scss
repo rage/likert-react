@@ -1,0 +1,22 @@
+
+.sentiment > * {
+  cursor: pointer;
+  margin: 0.2rem;
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.3);
+  }
+  &.highlighted {
+    transform: scale(1.2);
+    cursor: pointer;
+    margin: 0.2rem;
+    color: #1abc9c;
+  }
+  &:focus:not(.focus-ring) {
+    outline: none;
+  }
+  &.focus-ring {
+    outline: 0.15rem solid #89C4F4;
+  }
+}
+

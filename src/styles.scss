@@ -1,0 +1,43 @@
+
+.container-striped {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  padding: 0.2rem 0.2rem;
+  &:nth-child(even) {
+  background-color: #fff;
+  }
+  &:nth-child(odd) {
+    background-color: #ebebeb;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  padding: 0.2rem 0.2rem;
+}
+
+.full-line {
+  background-color: #a9a9c1;
+  height: 0.11rem;
+  border-radius: 0.2rem;
+  flex-grow: 2;
+}
+
+.dotted-line {
+  border: none;
+  border-top: 0.2rem dotted #a9a9c1;
+  height: 0.1rem;
+  flex-grow: 2;
+}
+
+.question {
+  margin: 0 0.4rem 0 0;
+  max-width: 60%;
+}

@@ -10,11 +10,18 @@
     cursor: pointer;
     margin: 0.2rem;
   }
+  &.highlighted.focus-gained {
+    transform: scale(1.2);
+    cursor: pointer;
+    margin: 0.2rem;
+    outline: 1rem solid red;
+  }
   &:focus:not(.focus-ring) {
     outline: none;
   }
-  &.focus-ring {
-    outline: 0.15rem solid #89C4F4;
-  }
+}
+
+.sentiment svg.focus-ring {
+  outline: 0.1rem solid red;
 }
 

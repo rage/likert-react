@@ -12,5 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <LikertScale
       reviews={reviews}
       onClick={onClick}
+      separatorType="dotted-line"
     />, root)
 });

@@ -4,7 +4,7 @@
 
 ## Usage
 
-```
+```javascript
 import LikertScale from './index';
 import React from 'react';
 import { render } from 'react-dom';
@@ -29,12 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Props
 
-`reviews`: An array of objects in the following form: `{ question: string, review: number }`. This way Redux-state can be passed to the component directly. Otherwise the `review` field can be left out, in which case the component will take care of its own state.
+| Prop | description | required | default |
+|------|-------------|----------|---------|
+|reviews|Represents all the questions and their the currently chosen values. Follows the following format: `{ question: string, review: ?number }` | yes | `undefined` |
+|onClick|A callback that gets triggered when an option is selected. Arguments passed to the callback: `reviewQuestion: string, review: number`| no | `undefined` |
+|highlightColor|Color used to highlight chosen answers| no | `#3498db` |
+|separatorType|Three options: `dotted-line`, `striped` and `full-line`| no | `full-line` |
+|icons|An array of React-components to represent each number on the scale, from lowest to highest. There are 5 default smiley-icons as shown in the example. The scale is stretched from 1 to the amount of review scale icons. For example the 5 default smiley-icons will result in the classic 1-5 Likert scale.| no | A good set of icons |
 
-`onClick`: Function to be called when a review icon is clicked. Receives `review question: string, review: number` as parameters. Likert scale is 1-based and the component passes the likert-review value as the second parameter (1 for the the most left icon).
-
-`separatorType`: Three options: `dotted-line`, `striped` and `full-line` (default is `full-line`).
-
-`icons`: An array of React-components to represent each number on the scale, from lowest to highest. There are 5 default smiley-icons as shown in the example. The scale is stretched from 1 to the amount of review scale icons. For example the 5 default smiley-icons will result in the classic 1-5 Likert scale.
 
 

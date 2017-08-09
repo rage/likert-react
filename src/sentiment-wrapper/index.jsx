@@ -9,8 +9,7 @@ const KEY_UP = 38;
 const KEY_DOWN = 40;
 
 export default class SentimentWrapper extends Component {
-
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.focusables = [];
     this.amountOfChildren = this.props.children.length;
@@ -51,9 +50,15 @@ export default class SentimentWrapper extends Component {
     return (
       <div className={styles.sentiment}>
         {this.props.children.map((child, m) => {
+          const style = {};
           const n = m + 1;
+          const chosen = this.state.chosen === n;
+          if (chosen) {
+            style.color = this.props.highlightColor;
+          }
           return React.cloneElement(child, {
-            className: this.state.chosen === n ? styles.highlighted : '',
+            className: chosen ? styles.highlighted : '',
+            style,
             onClick: () => {
               this.setState({ chosen: n });
               this.props.onClick(this.props.question, n);

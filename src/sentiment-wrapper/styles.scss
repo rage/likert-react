@@ -1,4 +1,3 @@
-
 .sentiment > * {
   cursor: pointer;
   margin: 0.2rem;
@@ -10,7 +9,6 @@
     transform: scale(1.2);
     cursor: pointer;
     margin: 0.2rem;
-    color: #1abc9c;
   }
   &:focus:not(.focus-ring) {
     outline: none;

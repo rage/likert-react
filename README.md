@@ -1,5 +1,7 @@
 # React Likert Scale
 
+[![npm version](https://badge.fury.io/js/likert-react.svg)](https://badge.fury.io/js/likert-react)
+
 A react component for answering questionnaires according to the Likert scale in a graphical way.
 
 ![React Likert scale example](https://github.com/rage/likert-react/blob/master/docs/likert-example.gif)

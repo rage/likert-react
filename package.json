@@ -1,7 +1,11 @@
 {
   "name": "likert-react",
-  "version": "0.0.0-beta1",
-  "description": "A react component that allows answering to questions with the likert scale.",
+  "version": "0.0.0-beta2",
+  "description": "A react component for answering questionnaires according to the Likert scale in a graphical way.",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/rage/likert-react.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
@@ -12,7 +16,9 @@
   },
   "keywords": [
     "likert scale",
-    "questions"
+    "questions",
+    "review",
+    "peer review"
   ],
   "author": "Henrik Nygren <nygrenh@gmail.com>",
   "license": "MIT OR Apache-2.0",

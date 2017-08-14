@@ -3,7 +3,10 @@ import prefixer from "utils/class-name-prefixer";
 import ReviewScale from "review-scale";
 import styles from "./styles.scss";
 
-export default ({ reviews, onClick, separatorType, icons, highlightColor = '#3498db' }) => {
+export default ({ reviews, onClick, separatorType = 'dotted-line', icons, highlightColor = '#3498db' }) => {
+  if (reviews === undefined) {
+    throw new Error("The 'reviews' prop is required.");
+  }
   const lineClassName = separatorType === "dotted-line"
     ? styles["dotted-line"]
     : separatorType === "striped" ? "" : styles["full-line"];

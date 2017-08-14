@@ -6,12 +6,12 @@ import { render } from 'react-dom';
 const root = document.getElementById('app');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const reviews = [{ question: 'question' }, { question: 'second question' }, { question: 'third question' }];
+  const reviews = [{ question: 'Code is readable' }, { question: 'Tests are comprehensive' }, { question: 'Webpack is configured well' }];
   const onClick= (q, n) => console.info('q: ' + q + ' answer: ' + n);
   render(
     <LikertScale
       reviews={reviews}
       onClick={onClick}
-      separatorType="dotted-line"
+      separatorType="striped"
     />, root)
 });

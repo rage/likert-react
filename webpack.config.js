@@ -31,17 +31,19 @@ const autoprefixer = require('autoprefixer');
 const precss = require('precss');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'dev-entry.jsx'),
+  entry: path.join(__dirname, 'src', 'index.jsx'),
 
   devtool: 'source-map',
 
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+    library: 'LikertScale',
+    libraryTarget: 'umd'
   },
 
   resolve: {
-    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')],
     extensions: ['.js', '.jsx', '.scss'],
   },
 
@@ -59,7 +61,7 @@ module.exports = {
       {
         test:  /\.s{0,1}css$/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract(['css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'postcss-loader', 'sass-loader']),
+        use: ExtractTextPlugin.extract(['css-loader?importLoader=1&modules&localIdentName=likert-react_[path]___[name]__[local]', 'postcss-loader', 'sass-loader']),
       }
     ]
   },

@@ -49,4 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 `striped`
 
-![striped example](https://github.com/rage/likert-react/blob/master/docs/striped-line-example.png)
+![striped example](https://github.com/rage/likert-react/blob/master/docs/likert-striped-example.png)

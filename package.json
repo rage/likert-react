@@ -1,12 +1,15 @@
 {
   "name": "likert-react",
-  "version": "0.0.0-beta2",
+  "version": "0.0.0-beta5",
   "description": "A react component for answering questionnaires according to the Likert scale in a graphical way.",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/rage/likert-react.git"
   },
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1",

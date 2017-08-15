@@ -9,6 +9,7 @@ A react component for answering questionnaires according to the Likert scale in 
 ## Usage
 
 ```javascript
+import 'wicg-focus-ring';
 import LikertScale from './index';
 import React from 'react';
 import { render } from 'react-dom';

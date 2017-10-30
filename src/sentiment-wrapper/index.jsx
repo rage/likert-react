@@ -31,14 +31,18 @@ export default class SentimentWrapper extends Component {
       case KEY_RIGHT:
         answer = (answer + 1 <= this.amountOfChildren) ? (answer + 1) : 1;
         this.setState({ chosen: answer });
-        this.props.onClick(this.props.question, answer);
+        if (this.props.onClick) {
+          this.props.onClick(this.props.question, answer);
+        }
         reviewKeyPressed = true;
         break;
       case KEY_DOWN:
       case KEY_LEFT:
         answer = (answer - 1 >= 1) ? (answer - 1) : this.amountOfChildren;
         this.setState({ chosen: answer });
-        this.props.onClick(this.props.question, answer);
+        if (this.props.onClick) {
+          this.props.onClick(this.props.question, answer);
+        }
         reviewKeyPressed = true;
         break;
       default:
@@ -61,7 +65,9 @@ export default class SentimentWrapper extends Component {
             style,
             onClick: () => {
               this.setState({ chosen: n });
-              this.props.onClick(this.props.question, n);
+              if (this.props.onClick) {
+                this.props.onClick(this.props.question, n);
+              }
             },
             role: 'radio',
             id: `${this.props.question}-${n}`,

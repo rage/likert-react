@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviews = [
     { question: 'Code is readable' },
     { question: 'Tests are comprehensive' },
-    { question: 'Tests are comprehensive' }
+    { question: 'Webpack is configured well' }
   ];
   const onClick = (q, n) => console.info('question: ' + q + ' answer: ' + n);
   render(

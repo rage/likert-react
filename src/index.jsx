@@ -30,7 +30,7 @@ const result = (questionValue, onClick, icons, highlightColor, container, lineCl
   return question(questionValue, onClick, icons, highlightColor, container, lineClassName, true)
 };
 
-export default ({ reviews, onClick, separatorType = 'dotted-line', icons, highlightColor = '#3498db' }) => {
+export default ({ reviews, onClick, separatorType = 'dotted-line', icons, highlightColor = '#3498db', frozen=false }) => {
   if (reviews === undefined) {
     throw new Error("The 'reviews' prop is required.");
   }
@@ -44,7 +44,7 @@ export default ({ reviews, onClick, separatorType = 'dotted-line', icons, highli
     <div>
       {reviews.map(questionValue => Array.isArray(questionValue.review)
         ? result(questionValue, onClick, icons, highlightColor, container, lineClassName)
-        : question(questionValue, onClick, icons, highlightColor, container, lineClassName, this.props.frozen))}
+        : question(questionValue, onClick, icons, highlightColor, container, lineClassName, frozen))}
     </div>
   );
 };

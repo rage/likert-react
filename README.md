@@ -34,11 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | Prop | description | required | default |
 |------|-------------|----------|---------|
-|reviews|Represents all the questions and their the currently chosen values. Follows the following format: `{ question: string, review: ?number }` | yes | `undefined` |
+|reviews|Represents all the questions and their the currently chosen values. Follows the following format: `{ question: string, review: ?number ⫾ [number] }`. If `review` is an array, `frozen` is automatically set to true and the average of the reviews is displayed. | yes | `undefined` |
 |onClick|A callback that gets triggered when an option is selected. Arguments passed to the callback: `reviewQuestion: string, review: number`| no | `undefined` |
 |highlightColor|Color used to highlight chosen answers| no | `#3498db` |
 |separatorType|Three options: `dotted-line`, `striped` and `full-line`| no | `dotted-line` |
 |icons|An array of React-components representing each number on the scale, ordered from lowest to highest. The answer scale goes from 1 to the amount of given icons. The components should be given unique keys. | no | 5 smiley icons from [Google](https://material.io/icons/#ic_sentiment_very_satisfied)|
+|frozen|Set to `true` to make the answers immutable.|no|`false`
 
 
 ## SeparatorType Examples

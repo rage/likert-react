@@ -44,7 +44,7 @@ export default ({ reviews, onClick, separatorType = 'dotted-line', icons, highli
     <div>
       {reviews.map(questionValue => Array.isArray(questionValue.review)
         ? result(questionValue, onClick, icons, highlightColor, container, lineClassName)
-        : question(questionValue, onClick, icons, highlightColor, container, lineClassName))}
+        : question(questionValue, onClick, icons, highlightColor, container, lineClassName, this.props.frozen))}
     </div>
   );
 };

@@ -24,6 +24,9 @@ export default class SentimentWrapper extends Component {
   }
 
   radioOnKeyDown(e: KeyboardEvent) {
+    if (this.props.frozen) {
+      return
+    }
     let answer = !this.state.chosen ? 0 : this.state.chosen;
     let reviewKeyPressed = false;
     switch (e.keyCode) {
@@ -61,9 +64,12 @@ export default class SentimentWrapper extends Component {
             style.color = this.props.highlightColor;
           }
           return React.cloneElement(child, {
-            className: chosen ? styles.highlighted : '',
+            className: `${chosen ? styles.highlighted : ''} ${this.props.frozen ? styles.frozen: ''}`,
             style,
             onClick: () => {
+              if (this.props.frozen) {
+                return
+              }
               this.setState({ chosen: n });
               if (this.props.onClick) {
                 this.props.onClick(this.props.question, n);

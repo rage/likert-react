@@ -7,7 +7,7 @@ import MdSentimentSatisfied from "react-icons/lib/md/sentiment-satisfied";
 import MdSentimentVerySatisfied from "react-icons/lib/md/sentiment-very-satisfied";
 import styles from './styles.scss';
 
-export default ({ question, answer, onClick, icons, highlightColor }) => {
+export default ({ question, answer, onClick, icons, highlightColor, frozen }) => {
   const defaultIcons = [
     <MdSentimentVeryDissatisfied key="1" />,
     <MdSentimentDissatisfied key="2" />,
@@ -18,7 +18,7 @@ export default ({ question, answer, onClick, icons, highlightColor }) => {
 
   return (
     <div role="radiogroup" aria-label={`${question}`} tabIndex="0" className={styles.scale}>
-      <SentimentWrapper question={question} answer={answer} onClick={onClick} highlightColor={highlightColor}>
+      <SentimentWrapper question={question} answer={answer} onClick={onClick} frozen={frozen} highlightColor={highlightColor}>
         {icons ? icons : defaultIcons}
       </SentimentWrapper>
     </div>

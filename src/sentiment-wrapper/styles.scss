@@ -1,19 +1,19 @@
 .sentiment > svg {
-  cursor: pointer;
   margin: 0.2rem;
   transition: transform .2s;
   font-size: 140%;
-  &:hover {
-    transform: scale(1.3);
+  &:not(.frozen) {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.3);
+    }
   }
   &.highlighted {
     transform: scale(1.2);
-    cursor: pointer;
     margin: 0.2rem;
   }
   &.highlighted.focus-gained {
     transform: scale(1.2);
-    cursor: pointer;
     margin: 0.2rem;
     outline: 1rem solid red;
   }

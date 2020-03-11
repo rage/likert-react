@@ -76,6 +76,7 @@ export default class SentimentWrapper extends Component {
               }
             },
             role: 'radio',
+            label: `${n}`,
             id: `${this.props.question}-${n}`,
             key: `${this.props.question}-${n}`,
             'aria-checked': this.state.chosen === n,
